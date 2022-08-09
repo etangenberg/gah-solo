@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
 
+import './App.css';
+import generateShuffledKeys from './generate-shuffled-keys';
+import TileElement from './tile-element';
+
+const getImageSrc = (id) => id ?`./images/automa_${id}.png` : './images/back.png';
+
+const cards = generateShuffledKeys(20, 20);
 function App() {
+  const [cardNo, setCardNo] = useState();
+
+  const setNext = () => {
+    if (cardNo === undefined) setCardNo(0);
+    else if (cardNo < 20) setCardNo(cardNo + 1);
+  }
+
+  const setPrev = () => {
+    if (cardNo >= 0) setCardNo(cardNo - 1);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={setPrev} disabled={!cardNo} >Prev</button>
+      <button onClick={setNext}>Next</button>
+      <TileElement
+        className="card"
+        src={getImageSrc(cards[cardNo])}
+        id={cardNo}
+        onClick={setNext}
+      />
     </div>
   );
 }
