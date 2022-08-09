@@ -4,7 +4,7 @@ import './App.css';
 import generateShuffledKeys from './generate-shuffled-keys';
 import TileElement from './tile-element';
 
-const getImageSrc = (id) => id ?`./images/automa_${id}.png` : './images/back.png';
+const getImageSrc = (id) => id ?`./images/automa_${id}.png` : './images/automa_back.png';
 
 const cards = generateShuffledKeys(20, 20);
 function App() {
