@@ -21,13 +21,15 @@ function App() {
 
   return (
     <div className="App">
-      <button onClick={setPrev} disabled={!cardNo} >Prev</button>
-      <button onClick={setNext}>Next</button>
+      <div className="controls">
+        <button onClick={setPrev} disabled={!cardNo} >Prev</button>
+        <div className="cardNo">{cardNo}</div>
+        <button onClick={setNext}>Next</button>
+      </div>
       <TileElement
         className="card"
         src={getImageSrc(cards[cardNo])}
         id={cardNo}
-        onClick={setNext}
       />
     </div>
   );

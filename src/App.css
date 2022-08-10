@@ -7,6 +7,15 @@
   pointer-events: none;
 }
 
+.controls {
+  display: flex;
+  height: 40px;
+  padding: 4px;
+  justify-content: space-between;
+  justify-items: stretch;
+}
+.cardNo { color: grey; }
+
 .card {
   padding: 20px
 }
